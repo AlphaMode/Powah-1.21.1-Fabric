@@ -30,12 +30,12 @@ jobs:
         env:
           POWAH_VERSION: vgit-${{ steps.var.outputs.commit_hash }}
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: powah ${{ steps.var.outputs.commit_hash }} [FABRIC]
           path: fabric/build/libs/Powah-git-${{ steps.var.outputs.commit_hash }}.jar
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: powah ${{ steps.var.outputs.commit_hash }} [FORGE]
           path: forge/build/libs/Powah-git-${{ steps.var.outputs.commit_hash }}.jar
