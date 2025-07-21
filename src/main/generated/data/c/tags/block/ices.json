@@ -1,8 +1,8 @@
 {
   "values": [
-    "#c:regular_ices",
-    "#c:packed_ices",
-    "#c:blue_ices",
-    "#c:dry_ices"
+    "#c:ices/ice",
+    "#c:ices/packed",
+    "#c:ices/blue",
+    "#c:ices/dry"
   ]
 }
