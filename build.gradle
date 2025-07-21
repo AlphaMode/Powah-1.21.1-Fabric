@@ -21,7 +21,10 @@ base {
 
 fabricApi {
     configureDataGeneration {
-        
+        outputDirectory = file("src/generated/resources")
+        strictValidation = true
+        createSourceSet = true
+        modId = "powah-datagen"
     }
 }
 

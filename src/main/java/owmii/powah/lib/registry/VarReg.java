@@ -17,6 +17,7 @@ public class VarReg<V extends Enum<V> & IVariant<V>, E> {
     }
 
     private final LinkedHashMap<V, Supplier<E>> all = new LinkedHashMap<>();
+    private final V[] variants;
 
     public VarReg(DeferredRegister<E> dr, String name, VariantConstructor<V, E> ctor, V[] variants) {
         for (V variant : variants) {
@@ -24,6 +25,7 @@ public class VarReg<V extends Enum<V> & IVariant<V>, E> {
             ALL_VARIANTS.computeIfAbsent(name, s -> new ArrayList<>()).add(entryName);
             this.all.put(variant, dr.register(entryName, () -> ctor.get(variant)));
         }
+        this.variants = variants;
     }
 
     public E[] getArr(IntFunction<E[]> generator) {
@@ -37,6 +39,10 @@ public class VarReg<V extends Enum<V> & IVariant<V>, E> {
 
     public E get(V variant) {
         return this.all.get(variant).get();
+    }
+
+    public V[] getVariants() {
+        return variants;
     }
 
     @FunctionalInterface

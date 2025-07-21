@@ -1,4 +1,4 @@
-package owmii.powah.fabric.data;
+package owmii.powah.data;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -6,6 +6,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
+import org.jetbrains.annotations.Nullable;
+import owmii.powah.Powah;
 import owmii.powah.world.gen.Features;
 
 public class DataEvents implements DataGeneratorEntrypoint {
@@ -14,6 +16,7 @@ public class DataEvents implements DataGeneratorEntrypoint {
         var pack = generator.createPack();
         var blockTagsProvider = pack.addProvider(TagsProvider.Blocks::new);
         pack.addProvider((output, registriesFuture) -> new TagsProvider.Items(output, registriesFuture, blockTagsProvider));
+        pack.addProvider(EnlishLangProvider::new);
         pack.addProvider((output, registriesFuture) -> new FabricDynamicRegistryProvider(output, registriesFuture) {
             @Override
             protected void configure(HolderLookup.Provider registries, Entries entries) {
@@ -26,6 +29,11 @@ public class DataEvents implements DataGeneratorEntrypoint {
                 return "Worldgen";
             }
         });
+    }
+
+    @Override
+    public String getEffectiveModId() {
+        return Powah.MOD_ID;
     }
 
     @Override

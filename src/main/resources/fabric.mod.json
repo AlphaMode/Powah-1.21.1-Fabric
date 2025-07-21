@@ -22,9 +22,6 @@
     "client": [
       "owmii.powah.fabric.client.PowahFabricClient"
     ],
-    "fabric-datagen": [
-      "owmii.powah.fabric.data.DataEvents"
-    ],
     "rei_client": [
       "owmii.powah.fabric.compat.rei.PowahREIPlugin"
     ],

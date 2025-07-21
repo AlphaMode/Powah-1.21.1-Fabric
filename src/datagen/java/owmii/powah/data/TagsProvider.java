@@ -1,4 +1,4 @@
-package owmii.powah.fabric.data;
+package owmii.powah.data;
 
 import java.util.concurrent.CompletableFuture;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -11,6 +11,7 @@ import net.minecraft.tags.BlockTags;
 import org.jetbrains.annotations.Nullable;
 import owmii.powah.Powah;
 import owmii.powah.block.Blcks;
+import owmii.powah.fabric.data.ITags;
 import owmii.powah.item.Itms;
 
 public class TagsProvider {

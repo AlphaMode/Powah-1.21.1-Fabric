@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "powah-datagen",
+  "version": "1.0.0",
+  "name": "Powah! Datagen",
+  "description": "Data Gen",
+  "authors": [
+    "owmii",
+    "Technici4n",
+    "AlphaMode"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Technici4n/Powah",
+    "sources": "https://github.com/Technici4n/Powah"
+  },
+  "license": "LGPL v3",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "owmii.powah.data.DataEvents"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "fabric": ">=0.116.4",
+    "minecraft": "~1.21.1",
+    "architectury": ">=13.0.8",
+    "team_reborn_energy": ">=2.2.0",
+    "cloth-config": "*"
+  }
+}

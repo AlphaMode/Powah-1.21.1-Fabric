@@ -1,4 +1,4 @@
 @NonnullDefault
-package owmii.powah.fabric.data;
+package owmii.powah.data;
 
 import org.lwjgl.system.NonnullDefault;

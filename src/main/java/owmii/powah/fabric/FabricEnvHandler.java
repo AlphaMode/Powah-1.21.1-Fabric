@@ -8,7 +8,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags;
+
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
@@ -86,7 +87,7 @@ public class FabricEnvHandler implements EnvHandler {
 
     @Override
     public TagKey<Biome> getOverworldBiomeTag() {
-        return ConventionalBiomeTags.IN_OVERWORLD;
+        return ConventionalBiomeTags.IS_OVERWORLD;
     }
 
     @Override
