@@ -1,6 +1,10 @@
 package owmii.powah.api.wrench;
 
 import com.mojang.serialization.Codec;
+import io.netty.buffer.ByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.util.ByIdMap;
 import net.minecraft.util.StringRepresentable;
 
 public enum WrenchMode implements StringRepresentable {
@@ -8,8 +12,9 @@ public enum WrenchMode implements StringRepresentable {
     LINK("link"),
     ROTATE("rotate");
 
-    public static final Codec<WrenchMode> CODEC = StringRepresentable.fromEnum(WrenchMode::values);
     private static final WrenchMode[] VALUES = values();
+    public static final Codec<WrenchMode> CODEC = StringRepresentable.fromEnum(WrenchMode::values);
+    public static final StreamCodec<ByteBuf, WrenchMode> STREAM_CODEC = ByteBufCodecs.idMapper(ByIdMap.continuous(WrenchMode::ordinal, VALUES, ByIdMap.OutOfBoundsStrategy.WRAP), WrenchMode::ordinal);
 
     public WrenchMode nextWrenchMode() {
         int nextIdx = ordinal() + 1;

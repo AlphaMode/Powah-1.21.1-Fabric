@@ -6,7 +6,8 @@
   "description": "A tech mod that adds various ways to generate, store and transmit Energy.",
   "authors": [
     "owmii",
-    "Technici4n"
+    "Technici4n",
+    "AlphaMode"
   ],
   "contact": {
     "homepage": "https://github.com/Technici4n/Powah",
@@ -23,9 +24,6 @@
     ],
     "fabric-datagen": [
       "owmii.powah.fabric.data.DataEvents"
-    ],
-    "jei_mod_plugin": [
-      "owmii.powah.compat.jei.PowahJEIPlugin"
     ],
     "rei_client": [
       "owmii.powah.fabric.compat.rei.PowahREIPlugin"

@@ -3,8 +3,8 @@ package owmii.powah.fabric.data;
 import java.util.concurrent.CompletableFuture;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBlockTags;
-import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.BlockTags;
@@ -36,8 +36,7 @@ public class TagsProvider {
                     .add(Blcks.DEEPSLATE_URANINITE_ORE_DENSE.get());
             getOrCreateTagBuilder(ConventionalBlockTags.ORES).addTag(ITags.Blocks.URANINITE_ORE);
 
-            // TODO PR TO FABRIC
-            // getOrCreateTagBuilder(STORAGE_BLOCKS).add(Blcks.URANINITE.get());
+            getOrCreateTagBuilder(ConventionalBlockTags.STORAGE_BLOCKS).add(Blcks.URANINITE.get());
             getOrCreateTagBuilder(ITags.Blocks.URANINITE_BLOCK).add(Blcks.URANINITE.get());
 
             // All of our blocks are mineable with a pickaxe
@@ -74,21 +73,16 @@ public class TagsProvider {
                     .add(Blcks.DEEPSLATE_URANINITE_ORE_DENSE.get().asItem());
             getOrCreateTagBuilder(ConventionalItemTags.ORES).addTag(ITags.Items.URANINITE_ORE);
 
-            // TODO PR TO FABRIC
-            // getOrCreateTagBuilder(ConventionalItemTags.STORAGE_BLOCKS).add(Blcks.URANINITE.get().asItem());
+            getOrCreateTagBuilder(ConventionalItemTags.STORAGE_BLOCKS).add(Blcks.URANINITE.get().asItem());
             getOrCreateTagBuilder(ITags.Items.URANINITE_BLOCK).add(Blcks.URANINITE.get().asItem());
-            // TODO PR TO FABRIC
-            getOrCreateTagBuilder(ITags.Items.QUARTZ_BLOCKS).add(net.minecraft.world.item.Items.QUARTZ);
 
             getOrCreateTagBuilder(ITags.Items.URANINITE_RAW).add(Itms.URANINITE_RAW.get());
-            // TODO PR TO FABRIC
-            // getOrCreateTagBuilder(ConventionalItemTags.RAW_ORES).addTag(ITags.Items.URANINITE_RAW);
+            getOrCreateTagBuilder(ConventionalItemTags.RAW_MATERIALS).addTag(ITags.Items.URANINITE_RAW);
 
-            // TODO PR TO FABRIC
-            // getOrCreateTagBuilder(ConventionalItemTags.INGOTS).add(Itms.ENERGIZED_STEEL.get());
-            // getOrCreateTagBuilder(ConventionalItemTags.GEMS).add(Itms.BLAZING_CRYSTAL.get(), Itms.NIOTIC_CRYSTAL.get(),
-            // Itms.SPIRITED_CRYSTAL.get(),
-            // Itms.NITRO_CRYSTAL.get());
+             getOrCreateTagBuilder(ConventionalItemTags.INGOTS).add(Itms.ENERGIZED_STEEL.get());
+             getOrCreateTagBuilder(ConventionalItemTags.GEMS).add(Itms.BLAZING_CRYSTAL.get(), Itms.NIOTIC_CRYSTAL.get(),
+             Itms.SPIRITED_CRYSTAL.get(),
+             Itms.NITRO_CRYSTAL.get());
 
             getOrCreateTagBuilder(ITags.Items.WRENCHES).add(Itms.WRENCH.get());
         }

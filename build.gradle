@@ -19,6 +19,12 @@ base {
     archivesName = rootProject.archives_base_name
 }
 
+fabricApi {
+    configureDataGeneration {
+        
+    }
+}
+
 version = (System.getenv("POWAH_VERSION") ?: "v0.0.0").substring(1)
 group = rootProject.maven_group
 
