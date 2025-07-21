@@ -6,12 +6,11 @@ pluginManagement {
         }
         maven { url "https://maven.architectury.dev/" }
         maven { url "https://files.minecraftforge.net/maven/" }
+        maven {
+            url = "https://repo.terradevelopment.net/repository/maven-releases/"
+        }
         gradlePluginPortal()
     }
 }
-
-include("common")
-include("fabric")
-include("forge")
 
 rootProject.name = 'Powah'
