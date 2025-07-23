@@ -23,7 +23,6 @@ import owmii.powah.components.BoundPlayer;
 import owmii.powah.components.PowahComponents;
 import owmii.powah.lib.item.ItemBase;
 import owmii.powah.lib.util.Player;
-import owmii.powah.lib.util.Stack;
 
 public class BindingCardItem extends ItemBase {
     private final boolean isMultiDim;

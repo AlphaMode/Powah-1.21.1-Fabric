@@ -80,10 +80,10 @@ public class TagsProvider {
             getOrCreateTagBuilder(ITags.Items.URANINITE_RAW).add(Itms.URANINITE_RAW.get());
             getOrCreateTagBuilder(ConventionalItemTags.RAW_MATERIALS).addTag(ITags.Items.URANINITE_RAW);
 
-             getOrCreateTagBuilder(ConventionalItemTags.INGOTS).add(Itms.ENERGIZED_STEEL.get());
-             getOrCreateTagBuilder(ConventionalItemTags.GEMS).add(Itms.BLAZING_CRYSTAL.get(), Itms.NIOTIC_CRYSTAL.get(),
-             Itms.SPIRITED_CRYSTAL.get(),
-             Itms.NITRO_CRYSTAL.get());
+            getOrCreateTagBuilder(ConventionalItemTags.INGOTS).add(Itms.ENERGIZED_STEEL.get());
+            getOrCreateTagBuilder(ConventionalItemTags.GEMS).add(Itms.BLAZING_CRYSTAL.get(), Itms.NIOTIC_CRYSTAL.get(),
+                    Itms.SPIRITED_CRYSTAL.get(),
+                    Itms.NITRO_CRYSTAL.get());
 
             getOrCreateTagBuilder(ITags.Items.WRENCHES).add(Itms.WRENCH.get());
         }

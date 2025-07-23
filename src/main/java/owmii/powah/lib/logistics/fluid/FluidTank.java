@@ -2,7 +2,6 @@ package owmii.powah.lib.logistics.fluid;
 
 import dev.architectury.fluid.FluidStack;
 import java.util.function.Predicate;
-
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import org.jetbrains.annotations.NotNull;
@@ -53,7 +52,9 @@ public class FluidTank {
     }
 
     public FluidTank readFromNBT(HolderLookup.Provider registries, CompoundTag nbt) {
-        FluidStack.read(registries, nbt.getCompound("tank")).ifPresent(this::setFluid);
+        if (nbt.contains("tank")) {
+            FluidStack.read(registries, nbt.getCompound("tank")).ifPresent(this::setFluid);
+        }
         return this;
     }
 

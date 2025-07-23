@@ -11,8 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class RenderTypes extends RenderType {
     private static final RenderStateShard.ShaderStateShard POSITION_TEX_COLOR_SHADER = new RenderStateShard.ShaderStateShard(
-            GameRenderer::getPositionTexColorShader
-    );
+            GameRenderer::getPositionTexColorShader);
     protected static final RenderStateShard.TransparencyStateShard BLENDED = new RenderStateShard.TransparencyStateShard("blended", () -> {
         RenderSystem.enableBlend();
         RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);
@@ -47,7 +46,7 @@ public class RenderTypes extends RenderType {
 
     public static RenderType getTextBlended(ResourceLocation locationIn) {
         CompositeState state = CompositeState.builder().setTextureState(new RenderStateShard.TextureStateShard(locationIn, false, false))
-                .setShaderState(RenderStateShard.RENDERTYPE_TEXT_SHADER)
+                .setShaderState(RenderStateShard.POSITION_COLOR_TEX_LIGHTMAP_SHADER)
                 .setTransparencyState(BLENDED)
                 .setLightmapState(NO_LIGHTMAP).createCompositeState(false);
         return create("text_blended", DefaultVertexFormat.POSITION_COLOR_TEX_LIGHTMAP, VertexFormat.Mode.QUADS, 256, false, true, state);

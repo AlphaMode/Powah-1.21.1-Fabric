@@ -2,6 +2,8 @@ package owmii.powah.lib.client.screen.widget;
 
 import java.util.List;
 import java.util.function.Supplier;
+
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
@@ -70,7 +72,8 @@ public class IconButton extends Button {
         if (isHovered) {
             setTooltip(createTooltip());
         }
-
+        RenderSystem.enableBlend();
+        RenderSystem.enableDepthTest();
         if (this.isHovered && !this.hovering.isEmpty()) {
             this.hovering.draw(gui, this.getX(), this.getY());
         } else {

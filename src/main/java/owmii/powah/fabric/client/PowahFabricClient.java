@@ -1,5 +1,6 @@
 package owmii.powah.fabric.client;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientChunkEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
@@ -30,14 +31,14 @@ public class PowahFabricClient implements ClientModInitializer {
             BuiltinItemRendererRegistry.INSTANCE.register(item, reactorRenderer::renderByItem);
         });
 
-        WorldRenderEvents.LAST.register(context -> {
-            ReactorOverlayHandler.onRenderLast(context.matrixStack());
+        WorldRenderEvents.END.register(context -> {
+            ReactorOverlayHandler.onRenderLast(new PoseStack(), context.camera());
         });
 
         ClientPickBlockGatherCallback.EVENT.register((player, result) -> {
             if (result instanceof BlockHitResult bhr) {
                 var level = player.level();
-                if (level.getBlockState(bhr.getBlockPos()).getBlock() instanceof AbstractBlock<?, ?>abstractBlock) {
+                if (level.getBlockState(bhr.getBlockPos()).getBlock() instanceof AbstractBlock<?, ?> abstractBlock) {
                     return abstractBlock.getCloneItemStack(level, bhr.getBlockPos());
                 }
             }

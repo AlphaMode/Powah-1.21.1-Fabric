@@ -1,24 +1,20 @@
 package owmii.powah.block.energizing;
 
 import com.google.gson.JsonParseException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import owmii.powah.Powah;
 import owmii.powah.lib.logistics.inventory.RecipeWrapper;
@@ -43,7 +39,7 @@ public class EnergizingRecipe implements Recipe<RecipeWrapper> {
     @Override
     public boolean matches(RecipeWrapper inv, Level world) {
         List<Ingredient> stacks = new ArrayList<>(getIngredients());
-        for (int i = 1; i < inv.getContainerSize(); i++) {
+        for (int i = 1; i < inv.size(); i++) {
             ItemStack stack = inv.getItem(i);
             if (!stack.isEmpty()) {
                 boolean flag = false;
@@ -121,7 +117,8 @@ public class EnergizingRecipe implements Recipe<RecipeWrapper> {
                         .fieldOf("ingredients")
                         .flatXmap(
                                 ingredients -> {
-                                    Ingredient[] ingredientsArray = ingredients.stream().filter(ingredient -> !ingredient.isEmpty()).toArray(Ingredient[]::new);
+                                    Ingredient[] ingredientsArray = ingredients.stream().filter(ingredient -> !ingredient.isEmpty())
+                                            .toArray(Ingredient[]::new);
 
                                     if (ingredientsArray.length == 0) {
                                         throw new JsonParseException("No ingredients for energizing recipe");
@@ -136,12 +133,12 @@ public class EnergizingRecipe implements Recipe<RecipeWrapper> {
                                                 : DataResult.success(NonNullList.of(Ingredient.EMPTY, ingredientsArray));
                                     }
                                 },
-                                DataResult::success
-                        )
-                        .forGetter(recipe -> recipe.ingredients)
-        ).apply(instance, EnergizingRecipe::new));
+                                DataResult::success)
+                        .forGetter(recipe -> recipe.ingredients))
+                .apply(instance, EnergizingRecipe::new));
 
-        public static final StreamCodec<RegistryFriendlyByteBuf, EnergizingRecipe> STREAM_CODEC = StreamCodec.of(Serializer::toNetwork, Serializer::fromNetwork);
+        public static final StreamCodec<RegistryFriendlyByteBuf, EnergizingRecipe> STREAM_CODEC = StreamCodec.of(Serializer::toNetwork,
+                Serializer::fromNetwork);
 
         public static EnergizingRecipe fromNetwork(RegistryFriendlyByteBuf buffer) {
             NonNullList<Ingredient> list = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);

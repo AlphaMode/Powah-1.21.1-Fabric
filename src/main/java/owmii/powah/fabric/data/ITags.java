@@ -32,7 +32,7 @@ public class ITags {
         public static final TagKey<Item> URANINITE_ORE = tag("ores/uraninite");
         public static final TagKey<Item> URANINITE_BLOCK = tag("storage_blocks/uraninite");
         public static final TagKey<Item> URANINITE_RAW = tag("storage_blocks/raw_uraninite");
-        public static final TagKey<Item> WRENCHES = tag("wrenches");
+        public static final TagKey<Item> WRENCHES = tag("tools/wrenches");
 
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", name));

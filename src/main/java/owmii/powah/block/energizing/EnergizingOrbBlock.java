@@ -15,9 +15,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtUtils;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -66,7 +63,8 @@ public class EnergizingOrbBlock extends AbstractBlock<IVariant.Single, Energizin
     }
 
     @Override
-    public ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+    public ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
+            BlockHitResult result) {
         BlockEntity tileentity = world.getBlockEntity(pos);
         if (tileentity instanceof EnergizingOrbTile) {
             EnergizingOrbTile orb = (EnergizingOrbTile) tileentity;

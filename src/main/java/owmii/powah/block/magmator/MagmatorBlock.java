@@ -56,7 +56,8 @@ public class MagmatorBlock extends AbstractGeneratorBlock<MagmatorBlock> {
     }
 
     @Override
-    public ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+    public ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
+            BlockHitResult result) {
         BlockEntity tile = world.getBlockEntity(pos);
         if (tile instanceof MagmatorTile magmator) {
             if (EnvHandler.INSTANCE.interactWithTank(held, player, hand, magmator.getTank())) {

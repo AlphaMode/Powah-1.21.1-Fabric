@@ -9,8 +9,6 @@ import owmii.powah.components.PowahComponents;
 import owmii.powah.components.StorableComponent;
 import owmii.powah.lib.item.EnergyBlockItem;
 import owmii.powah.lib.item.IEnergyContainingItem;
-import owmii.powah.lib.util.NBT;
-import owmii.powah.lib.util.Stack;
 import owmii.powah.lib.util.Util;
 
 public class Energy {
@@ -274,7 +272,9 @@ public class Energy {
         }
 
         private void write() {
-            this.write(this.stack.getOrDefault(PowahComponents.STORED, StorableComponent.EMPTY).tag(), false, false);
+            CompoundTag newTag = this.stack.getOrDefault(PowahComponents.STORED, StorableComponent.EMPTY).tag().copy();
+            this.write(newTag, false, false);
+            this.stack.set(PowahComponents.STORED, new StorableComponent(newTag));
         }
 
         @Override

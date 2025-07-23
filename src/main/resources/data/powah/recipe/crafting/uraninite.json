@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+	{"item": "powah:uraninite_block"}
+  ],
+  "result": {
+	"id": "powah:uraninite",
+	"count": 9
+  }
+}

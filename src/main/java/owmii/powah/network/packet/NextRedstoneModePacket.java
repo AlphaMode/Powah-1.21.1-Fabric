@@ -16,8 +16,7 @@ public record NextRedstoneModePacket(BlockPos pos) implements IPacket {
     public static final StreamCodec<RegistryFriendlyByteBuf, NextRedstoneModePacket> CODEC = StreamCodec.composite(
             BlockPos.STREAM_CODEC,
             NextRedstoneModePacket::pos,
-            NextRedstoneModePacket::new
-    );
+            NextRedstoneModePacket::new);
 
     @Override
     public Type<NextRedstoneModePacket> type() {

@@ -72,7 +72,8 @@ public class ReactorBlock extends AbstractGeneratorBlock<ReactorBlock> {
     }
 
     @Override
-    public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+    public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
+            BlockHitResult result) {
         BlockEntity tileentity = world.getBlockEntity(pos);
         if (tileentity instanceof ReactorTile reactor) {
             if (reactor.isBuilt()) {
@@ -88,6 +89,17 @@ public class ReactorBlock extends AbstractGeneratorBlock<ReactorBlock> {
             }
         }
         return super.useItemOn(stack, state, world, pos, player, hand, result);
+    }
+
+    @Override
+    public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult result) {
+        BlockEntity tileentity = world.getBlockEntity(pos);
+        if (tileentity instanceof ReactorPartTile reactor) {
+            if (reactor.isBuilt() && reactor.core().isPresent()) {
+                return reactor.getBlock().useWithoutItem(state, world, reactor.getCorePos(), player, result);
+            }
+        }
+        return super.useWithoutItem(state, world, pos, player, result);
     }
 
     @Nullable

@@ -81,7 +81,7 @@ public class AbstractContainerScreen<C extends AbstractContainer> extends net.mi
     }
 
     public void renderSlot(GuiGraphics gui, Slot slot) {
-        if (slot instanceof ITexturedSlot<?>base) {
+        if (slot instanceof ITexturedSlot<?> base) {
             int x = slot.x;
             int y = slot.y;
             base.getBackground2().draw(gui, x, y);

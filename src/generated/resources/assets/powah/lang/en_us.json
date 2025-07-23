@@ -191,7 +191,7 @@
   "tag.item.c.ores.uraninite": "Uranite Ores",
   "tag.item.c.storage_blocks.raw_uraninite": "Raw Uraninite Ores",
   "tag.item.c.storage_blocks.uraninite": "Uranite Blocks",
-  "tag.item.c.wrenches": "Wrenches",
+  "tag.item.c.tools.wrenches": "Wrenches",
   "wiki.powah.battery": "Batteries",
   "wiki.powah.battery_0": "Charge items when is in player inventory, can Also be used to upgrade the capacity of a Ender Network channel by Shift clicking a Battery to an Ender Cell GUI, if the Battery contain energy then will also be applied to the ender network channel.",
   "wiki.powah.binding_card": "Binding Card",

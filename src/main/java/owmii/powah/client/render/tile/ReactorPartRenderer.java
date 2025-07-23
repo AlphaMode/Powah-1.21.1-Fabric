@@ -8,8 +8,6 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.FastColor;
 import owmii.powah.Powah;
 import owmii.powah.block.reactor.ReactorPartTile;
 import owmii.powah.client.model.CubeModel;

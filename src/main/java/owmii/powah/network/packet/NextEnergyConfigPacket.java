@@ -2,11 +2,9 @@ package owmii.powah.network.packet;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -21,8 +19,7 @@ public record NextEnergyConfigPacket(int mode, BlockPos pos) implements IPacket 
             NextEnergyConfigPacket::mode,
             BlockPos.STREAM_CODEC,
             NextEnergyConfigPacket::pos,
-            NextEnergyConfigPacket::new
-    );
+            NextEnergyConfigPacket::new);
 
     @Override
     public Type<NextEnergyConfigPacket> type() {

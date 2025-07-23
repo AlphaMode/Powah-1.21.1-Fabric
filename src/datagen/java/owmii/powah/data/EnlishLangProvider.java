@@ -1,5 +1,6 @@
 package owmii.powah.data;
 
+import java.util.concurrent.CompletableFuture;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
@@ -8,8 +9,6 @@ import owmii.powah.block.Tier;
 import owmii.powah.fabric.data.ITags;
 import owmii.powah.item.ItemGroups;
 import owmii.powah.item.Itms;
-
-import java.util.concurrent.CompletableFuture;
 
 public class EnlishLangProvider extends FabricLanguageProvider {
     protected EnlishLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
@@ -157,17 +156,17 @@ public class EnlishLangProvider extends FabricLanguageProvider {
         for (Tier tier : Itms.BATTERY.getVariants()) {
             builder.add(Itms.BATTERY.get(tier), "Battery (%s)".formatted(tier.getLocaleName()));
         }
-        
+
         // ItemGroup
         builder.add(ItemGroups.MAIN_KEY, "Powah");
-        
-        // Chat 
+
+        // Chat
         builder.add("chat.powah.no.binding", "This Card is already bound to %s!");
         builder.add("chat.powah.not.enough.blocks", "Not enough Blocks! you need %s more!");
         builder.add("chat.powah.wrench.link.done", "Linking done!");
         builder.add("chat.powah.wrench.link.fail", "Out of range!!");
         builder.add("chat.powah.wrench.link.start", "Started linking ...");
-        
+
         // JEI
         builder.add("gui.powah.jei.category.coolant", "Coolants");
         builder.add("gui.powah.jei.category.energizing", "Energizing");
@@ -177,7 +176,7 @@ public class EnlishLangProvider extends FabricLanguageProvider {
         builder.add("jei.powah.binding_card_dim", "Use a Binding card on Enderman or Endermite.");
         builder.add("jei.powah.lens_of_ender", "Use a Photoelectric Pane on Enderman or Endermite.");
         builder.add("jei.powah.player_aerial_pearl", "Use an Aerial Pearl on Zombie or Husk.");
-        
+
         // Info
         builder.add("info.powah.carbon", "Carbon");
         builder.add("info.powah.channel", "Channel: %s");
@@ -198,75 +197,98 @@ public class EnlishLangProvider extends FabricLanguageProvider {
         builder.add("info.powah.wrench.mode.config", "Config");
         builder.add("info.powah.wrench.mode.link", "Link");
         builder.add("info.powah.wrench.mode.rotate", "Rotate");
-        
+
         // Wiki
         builder.add("wiki.powah.battery", "Batteries");
-        builder.add("wiki.powah.battery_0", "Charge items when is in player inventory, can Also be used to upgrade the capacity of a Ender Network channel by Shift clicking a Battery to an Ender Cell GUI, if the Battery contain energy then will also be applied to the ender network channel.");
+        builder.add("wiki.powah.battery_0",
+                "Charge items when is in player inventory, can Also be used to upgrade the capacity of a Ender Network channel by Shift clicking a Battery to an Ender Cell GUI, if the Battery contain energy then will also be applied to the ender network channel.");
         builder.add("wiki.powah.binding_card", "Binding Card");
         builder.add("wiki.powah.binding_card_0", "Binding Card used to link a player with a Player Transmitter in the same dimension.");
         builder.add("wiki.powah.binding_card_1", "You need to link it with you before adding it to the player transmitter, Right-click it to bind.");
         builder.add("wiki.powah.binding_card_dim", "Binding Card (Dimensional)");
         builder.add("wiki.powah.binding_card_dim_0", "Dimensional Binding Card used to link a player with a Player Transmitter across dimensions.");
-        builder.add("wiki.powah.binding_card_dim_1", "You need to link it with you before adding it to the player transmitter, Right-click it to bind.");
+        builder.add("wiki.powah.binding_card_dim_1",
+                "You need to link it with you before adding it to the player transmitter, Right-click it to bind.");
         builder.add("wiki.powah.charged_snowball", "Charged Snowball");
-        builder.add("wiki.powah.charged_snowball_0", "Throwing a Charged Snowball will cause a bolt of lightning to spawn when hitting the ground or when it hits the mob, obtained by energizing a snowball.");
+        builder.add("wiki.powah.charged_snowball_0",
+                "Throwing a Charged Snowball will cause a bolt of lightning to spawn when hitting the ground or when it hits the mob, obtained by energizing a snowball.");
         builder.add("wiki.powah.dry_ice", "Dry Ice");
-        builder.add("wiki.powah.dry_ice_0", "Dry Ice used mainly to cool down reactors, it can be found underground at levels below 64, you can also obtain it by energizing two pieces of blue ice.");
+        builder.add("wiki.powah.dry_ice_0",
+                "Dry Ice used mainly to cool down reactors, it can be found underground at levels below 64, you can also obtain it by energizing two pieces of blue ice.");
         builder.add("wiki.powah.ender_cell", "Ender Cells");
-        builder.add("wiki.powah.ender_cell_0", "The Ender Cell its a block used to store energy (FE) to a specific channel of the ender network of the owner.");
-        builder.add("wiki.powah.ender_cell_1", "You can access the energy stored of a selected channel from anywhere in the world if the Ender Cell that you want to transfer power from/to have an active channel with a valid capacity.");
-        builder.add("wiki.powah.ender_cell_2", "You can add capacity to a selected channel by shift-clicking an Energy Cell or Battery to the Ender Cell GUI.");
+        builder.add("wiki.powah.ender_cell_0",
+                "The Ender Cell its a block used to store energy (FE) to a specific channel of the ender network of the owner.");
+        builder.add("wiki.powah.ender_cell_1",
+                "You can access the energy stored of a selected channel from anywhere in the world if the Ender Cell that you want to transfer power from/to have an active channel with a valid capacity.");
+        builder.add("wiki.powah.ender_cell_2",
+                "You can add capacity to a selected channel by shift-clicking an Energy Cell or Battery to the Ender Cell GUI.");
         builder.add("wiki.powah.ender_cell_3", "The amount added is the same of the item you've added, max capacity a channel can have is 9E FE.");
         builder.add("wiki.powah.ender_gate", "Ender Gates");
         builder.add("wiki.powah.ender_gate_0", "Transfer energy between the adjacent block and the ender network.");
         builder.add("wiki.powah.ender_gate_1", "Unlike the Ender cell you can not Upgrade the network from it.");
         builder.add("wiki.powah.energizing", "Energizing");
-        builder.add("wiki.powah.energizing_0", "The Energizing Orb its a block used to energize items, require at least one Energizing Rod in range of %s to work, the energizing speed depends on amount of rods and the rod tier (I/O rate).");
-        builder.add("wiki.powah.energizing_1", "The orb does not require energy but the rods must be placed on cables or any Forge Energy (FE) block to work.");
-        builder.add("wiki.powah.energizing_2", "When placing the orb/rod in range will automatically link to each other, also you can use the <powah:wrench> with Link mode to re-link them.");
+        builder.add("wiki.powah.energizing_0",
+                "The Energizing Orb its a block used to energize items, require at least one Energizing Rod in range of %s to work, the energizing speed depends on amount of rods and the rod tier (I/O rate).");
+        builder.add("wiki.powah.energizing_1",
+                "The orb does not require energy but the rods must be placed on cables or any Forge Energy (FE) block to work.");
+        builder.add("wiki.powah.energizing_2",
+                "When placing the orb/rod in range will automatically link to each other, also you can use the <powah:wrench> with Link mode to re-link them.");
         builder.add("wiki.powah.energy_blocks", "Functional Blocks");
         builder.add("wiki.powah.energy_cable", "Energy Cables");
         builder.add("wiki.powah.energy_cable_0", "Cables are used to transfer power between machines.");
-        builder.add("wiki.powah.energy_cable_1", "You can change transfer mode of by right-clicking a cable using <powah:wrench> with Config mode selected.");
+        builder.add("wiki.powah.energy_cable_1",
+                "You can change transfer mode of by right-clicking a cable using <powah:wrench> with Config mode selected.");
         builder.add("wiki.powah.energy_cell", "Energy Cells");
         builder.add("wiki.powah.energy_cell_0", "The Energy Cell its a block used to store energy (FE).");
-        builder.add("wiki.powah.energy_cell_1", "Can Also be used to add capacity to an Ender Network channel by Shift-clicking it to an Ender Cell GUI, if the Energy Cell contains energy then will also be applied to the ender network channel.");
+        builder.add("wiki.powah.energy_cell_1",
+                "Can Also be used to add capacity to an Ender Network channel by Shift-clicking it to an Ender Cell GUI, if the Energy Cell contains energy then will also be applied to the ender network channel.");
         builder.add("wiki.powah.energy_discharger", "Energy Discharger");
-        builder.add("wiki.powah.energy_discharger_0", "The Energy Discharger its a block used to drain energy (FE) out of charged items and then store it to an internal buffer if then connected via cables to extract that stored power and re-using it again.");
+        builder.add("wiki.powah.energy_discharger_0",
+                "The Energy Discharger its a block used to drain energy (FE) out of charged items and then store it to an internal buffer if then connected via cables to extract that stored power and re-using it again.");
         builder.add("wiki.powah.energy_hopper", "Energy Hopper");
-        builder.add("wiki.powah.energy_hopper_0", "The Energy Hopper its a block used to charge chargeable items inside an adjacent inventory like a chest or any block with an accessible inventory and not a not has forge energy.");
+        builder.add("wiki.powah.energy_hopper_0",
+                "The Energy Hopper its a block used to charge chargeable items inside an adjacent inventory like a chest or any block with an accessible inventory and not a not has forge energy.");
         builder.add("wiki.powah.furnator", "Furnator");
         builder.add("wiki.powah.furnator_0", "The Furnator is an FE generator that generates energy from solid Furnace fuel like coal, wood ...");
-        builder.add("wiki.powah.furnator_1", "High tiers generate more FE/t and it has higher energy output, also they burn the fuel faster with the same energy gained per fuel tick.");
+        builder.add("wiki.powah.furnator_1",
+                "High tiers generate more FE/t and it has higher energy output, also they burn the fuel faster with the same energy gained per fuel tick.");
         builder.add("wiki.powah.generators", "Generators");
         builder.add("wiki.powah.items", "Items");
         builder.add("wiki.powah.lens_of_ender", "Lens Of Ender");
         builder.add("wiki.powah.lens_of_ender_0", "When Applying a Lens Of Ender to a Solar Panel will make it see through blocks.");
         builder.add("wiki.powah.magmator", "Magmator");
         builder.add("wiki.powah.magmator_0", "The Magmator is an FE generator that generates energy from high temp fluids like Lava.");
-        builder.add("wiki.powah.magmator_1", "High tiers generate more FE/t and it has higher energy output, also they burn the fuel faster with the same energy gained per fuel tick.");
+        builder.add("wiki.powah.magmator_1",
+                "High tiers generate more FE/t and it has higher energy output, also they burn the fuel faster with the same energy gained per fuel tick.");
         builder.add("wiki.powah.materials", "Materials");
         builder.add("wiki.powah.player_aerial_pearl", "Player Aerial Pearl");
         builder.add("wiki.powah.player_aerial_pearl_0", "Player Aerial Pearl used to craft the player transmitter.");
         builder.add("wiki.powah.player_aerial_pearl_1", "You can get it by using an Aerial Pearl on a Zombie or Husk.");
         builder.add("wiki.powah.player_transmitter", "Player Transmitter");
-        builder.add("wiki.powah.player_transmitter_0", "The Player Transmitter its a block used to charge items wirelessly in linked player inventory including armor slots and off-hand anywhere in the same dimension when has a normal binding card and across dimensions when has a dimensional binding card.");
+        builder.add("wiki.powah.player_transmitter_0",
+                "The Player Transmitter its a block used to charge items wirelessly in linked player inventory including armor slots and off-hand anywhere in the same dimension when has a normal binding card and across dimensions when has a dimensional binding card.");
         builder.add("wiki.powah.reactor", "Reactor");
         builder.add("wiki.powah.reactor_0", "The Reactor is a multi-block (FE) generator that use Uraninite as main fuel.");
-        builder.add("wiki.powah.reactor_1", "To build it you will need 36 Reactor block in your hand and placing them in a 3X4 replaceable area, then the reactor will complete building itself automatically.");
-        builder.add("wiki.powah.reactor_2", "When Generating energy the reactor heats up causing it to consume fuel faster and generating less FE/t, so you need to cool it down using a coolant like water, also you can use a solid coolant like snow or ice for extra coldness, solid coolant require liquid coolant to work.");
+        builder.add("wiki.powah.reactor_1",
+                "To build it you will need 36 Reactor block in your hand and placing them in a 3X4 replaceable area, then the reactor will complete building itself automatically.");
+        builder.add("wiki.powah.reactor_2",
+                "When Generating energy the reactor heats up causing it to consume fuel faster and generating less FE/t, so you need to cool it down using a coolant like water, also you can use a solid coolant like snow or ice for extra coldness, solid coolant require liquid coolant to work.");
         builder.add("wiki.powah.reactor_3", "Keep the reactor buffer full of fuel for better production.");
         builder.add("wiki.powah.reactor_4", "Carbon materials like coal, wood..., will improve the fuel efficiency and will add +180 C of heat.");
         builder.add("wiki.powah.reactor_5", "Redstone will speed up the production and the fuel consumption and will add +120 C of heat.");
         builder.add("wiki.powah.reactor_6", "The reactor will stop when is full and start when has less than 70% of energy if the auto mode is on.");
         builder.add("wiki.powah.solar_panel", "Solar Panel");
-        builder.add("wiki.powah.solar_panel_0", "The Solar Panel is an FE generator that generates energy when exposed to sunlight, high tiers generates more FE/t, any block that stop light above the Solar panel will stop its production.");
+        builder.add("wiki.powah.solar_panel_0",
+                "The Solar Panel is an FE generator that generates energy when exposed to sunlight, high tiers generates more FE/t, any block that stop light above the Solar panel will stop its production.");
         builder.add("wiki.powah.storage_transfer", "Storage / Transfer");
         builder.add("wiki.powah.thermo_generator", "Thermo Generator");
-        builder.add("wiki.powah.thermo_generator_0", "The Thermo Generator is an FE generator that generates energy when placed on top of a high temp block/fluid like lava, require a coolant fluid like water to run.");
+        builder.add("wiki.powah.thermo_generator_0",
+                "The Thermo Generator is an FE generator that generates energy when placed on top of a high temp block/fluid like lava, require a coolant fluid like water to run.");
         builder.add("wiki.powah.uraninite", "Uraninite Ore");
-        builder.add("wiki.powah.uraninite_0", "Uraninite Ore is an ore rarely found underground at levels below 64 for poor, below 20 for the normal, and below 0 for dense, and is found in 1 - 5 block deposits.");
-        builder.add("wiki.powah.uraninite_1", "An iron or better pickaxe is needed to mine it, and when mined it will drop 1 piece of Raw Uraninite based on the ore type (the amount dropped are effected by fortune).");
+        builder.add("wiki.powah.uraninite_0",
+                "Uraninite Ore is an ore rarely found underground at levels below 64 for poor, below 20 for the normal, and below 0 for dense, and is found in 1 - 5 block deposits.");
+        builder.add("wiki.powah.uraninite_1",
+                "An iron or better pickaxe is needed to mine it, and when mined it will drop 1 piece of Raw Uraninite based on the ore type (the amount dropped are effected by fortune).");
         builder.add("wiki.powah.welcome_back", "Welcome back %s :)");
         builder.add("wiki.powah.wrench", "Wrench");
         builder.add("wiki.powah.wrench_0", "The Wrench has 3 modes:");

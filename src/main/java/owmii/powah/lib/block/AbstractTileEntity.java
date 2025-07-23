@@ -19,8 +19,6 @@ import owmii.powah.lib.logistics.Redstone;
 import owmii.powah.lib.logistics.fluid.Tank;
 import owmii.powah.lib.logistics.inventory.Inventory;
 import owmii.powah.lib.registry.IVariant;
-import owmii.powah.lib.util.NBT;
-import owmii.powah.lib.util.Stack;
 
 @SuppressWarnings("unchecked")
 public class AbstractTileEntity<V extends IVariant, B extends AbstractBlock<V, B>> extends BlockEntity implements IBlockEntity, IRedstoneInteract {

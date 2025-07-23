@@ -68,58 +68,82 @@ public class Render {
     public static void cube(Matrix4f matrix4f, VertexConsumer builder, V3d v3d, TextureAtlasSprite sprite, double size, int light, float r, float g,
             float b, float a) {
         final float d = (float) (size / 2.0d);
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV0())
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV0())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV0())
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV0())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV1())
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV1())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV1())
-                .setLight(light);
-
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV0())
-                .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV0())
-                .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV1())
-                .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV1())
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV1())
                 .setLight(light);
 
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV0())
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV0())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV1())
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV0())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV1())
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV1())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV0())
-                .setLight(light);
-
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV0())
-                .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV1())
-                .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV1())
-                .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV0())
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV1())
                 .setLight(light);
 
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV0())
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV0())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV1())
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV1())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV1())
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV1())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV0())
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV0())
                 .setLight(light);
 
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV0())
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV0())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU0(), sprite.getV1())
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV1())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV1())
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV1())
                 .setLight(light);
-        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a).setUv(sprite.getU1(), sprite.getV0())
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV0())
+                .setLight(light);
+
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV0())
+                .setLight(light);
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV1())
+                .setLight(light);
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV1())
+                .setLight(light);
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() + d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV0())
+                .setLight(light);
+
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV0())
+                .setLight(light);
+        builder.addVertex(matrix4f, (float) v3d.x() - d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU0(), sprite.getV1())
+                .setLight(light);
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() + d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV1())
+                .setLight(light);
+        builder.addVertex(matrix4f, (float) v3d.x() + d, (float) v3d.y() - d, (float) v3d.z() - d).setColor(r, g, b, a)
+                .setUv(sprite.getU1(), sprite.getV0())
                 .setLight(light);
 
     }
@@ -135,12 +159,14 @@ public class Render {
     public static void cube(Matrix4f matrix4f, VertexConsumer builder, V3d v3d, double size, float u, float v, int light, float r, float g, float b,
             float a) {
         float half = (float) (size / 2D);
-        builder.addVertex((float) v3d.x() - half, (float) v3d.y() - half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(0.0f, 0.0f).setLight(light);
+        builder.addVertex((float) v3d.x() - half, (float) v3d.y() - half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(0.0f, 0.0f)
+                .setLight(light);
         builder.addVertex((float) v3d.x() + half, (float) v3d.y() - half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(u, 0.0f).setLight(light);
         builder.addVertex((float) v3d.x() + half, (float) v3d.y() - half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(u, v).setLight(light);
         builder.addVertex((float) v3d.x() - half, (float) v3d.y() - half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(0.0f, v).setLight(light);
 
-        builder.addVertex((float) v3d.x() - half, (float) v3d.y() + half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(0.0f, 0.0f).setLight(light);
+        builder.addVertex((float) v3d.x() - half, (float) v3d.y() + half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(0.0f, 0.0f)
+                .setLight(light);
         builder.addVertex((float) v3d.x() + half, (float) v3d.y() + half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(u, 0.0f).setLight(light);
         builder.addVertex((float) v3d.x() + half, (float) v3d.y() + half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(u, v).setLight(light);
         builder.addVertex((float) v3d.x() - half, (float) v3d.y() + half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(0.0f, v).setLight(light);
@@ -148,19 +174,23 @@ public class Render {
         builder.addVertex((float) v3d.x() - half, (float) v3d.y() - half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(u, 0.0f).setLight(light);
         builder.addVertex((float) v3d.x() - half, (float) v3d.y() + half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(u, v).setLight(light);
         builder.addVertex((float) v3d.x() - half, (float) v3d.y() + half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(0.0f, v).setLight(light);
-        builder.addVertex((float) v3d.x() - half, (float) v3d.y() - half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(0.0f, 0.0f).setLight(light);
+        builder.addVertex((float) v3d.x() - half, (float) v3d.y() - half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(0.0f, 0.0f)
+                .setLight(light);
 
         builder.addVertex((float) v3d.x() + half, (float) v3d.y() - half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(u, 0.0f).setLight(light);
         builder.addVertex((float) v3d.x() + half, (float) v3d.y() + half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(u, v).setLight(light);
         builder.addVertex((float) v3d.x() + half, (float) v3d.y() + half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(0.0f, v).setLight(light);
-        builder.addVertex((float) v3d.x() + half, (float) v3d.y() - half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(0.0f, 0.0f).setLight(light);
+        builder.addVertex((float) v3d.x() + half, (float) v3d.y() - half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(0.0f, 0.0f)
+                .setLight(light);
 
-        builder.addVertex((float) v3d.x() + half, (float) v3d.y() - half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(0.0f, 0.0f).setLight(light);
+        builder.addVertex((float) v3d.x() + half, (float) v3d.y() - half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(0.0f, 0.0f)
+                .setLight(light);
         builder.addVertex((float) v3d.x() + half, (float) v3d.y() + half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(0.0f, v).setLight(light);
         builder.addVertex((float) v3d.x() - half, (float) v3d.y() + half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(u, v).setLight(light);
         builder.addVertex((float) v3d.x() - half, (float) v3d.y() - half, (float) v3d.z() - half).setColor(r, g, b, a).setUv(u, 0.0f).setLight(light);
 
-        builder.addVertex((float) v3d.x() - half, (float) v3d.y() - half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(0.0f, 0.0f).setLight(light);
+        builder.addVertex((float) v3d.x() - half, (float) v3d.y() - half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(0.0f, 0.0f)
+                .setLight(light);
         builder.addVertex((float) v3d.x() - half, (float) v3d.y() + half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(0.0f, v).setLight(light);
         builder.addVertex((float) v3d.x() + half, (float) v3d.y() + half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(u, v).setLight(light);
         builder.addVertex((float) v3d.x() + half, (float) v3d.y() - half, (float) v3d.z() + half).setColor(r, g, b, a).setUv(u, 0.0f).setLight(light);

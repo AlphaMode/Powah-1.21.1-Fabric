@@ -47,7 +47,7 @@ public class ThermoBlock extends AbstractGeneratorBlock<ThermoBlock> {
 
     @Override
     public ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
-                                           BlockHitResult blockRayTraceResult) {
+            BlockHitResult blockRayTraceResult) {
         BlockEntity tile = world.getBlockEntity(pos);
         if (tile instanceof ThermoTile genTile) {
             if (EnvHandler.INSTANCE.interactWithTank(held, player, hand, genTile.getTank())) {

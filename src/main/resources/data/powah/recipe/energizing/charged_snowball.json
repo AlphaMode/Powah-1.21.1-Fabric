@@ -1,0 +1,10 @@
+{
+  "type": "powah:energizing",
+  "ingredients": [
+	{"item": "minecraft:snowball"}
+  ],
+  "energy": 500000,
+  "result": {
+	"id": "powah:charged_snowball"
+  }
+}

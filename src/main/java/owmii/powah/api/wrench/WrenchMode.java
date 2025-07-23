@@ -14,7 +14,8 @@ public enum WrenchMode implements StringRepresentable {
 
     private static final WrenchMode[] VALUES = values();
     public static final Codec<WrenchMode> CODEC = StringRepresentable.fromEnum(WrenchMode::values);
-    public static final StreamCodec<ByteBuf, WrenchMode> STREAM_CODEC = ByteBufCodecs.idMapper(ByIdMap.continuous(WrenchMode::ordinal, VALUES, ByIdMap.OutOfBoundsStrategy.WRAP), WrenchMode::ordinal);
+    public static final StreamCodec<ByteBuf, WrenchMode> STREAM_CODEC = ByteBufCodecs
+            .idMapper(ByIdMap.continuous(WrenchMode::ordinal, VALUES, ByIdMap.OutOfBoundsStrategy.WRAP), WrenchMode::ordinal);
 
     public WrenchMode nextWrenchMode() {
         int nextIdx = ordinal() + 1;

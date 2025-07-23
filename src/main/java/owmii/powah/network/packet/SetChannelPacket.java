@@ -18,8 +18,7 @@ public record SetChannelPacket(BlockPos pos, int channel) implements IPacket {
             SetChannelPacket::pos,
             ByteBufCodecs.INT,
             SetChannelPacket::channel,
-            SetChannelPacket::new
-    );
+            SetChannelPacket::new);
 
     @Override
     public Type<SetChannelPacket> type() {

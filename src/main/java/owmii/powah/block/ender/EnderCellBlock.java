@@ -31,7 +31,7 @@ public class EnderCellBlock extends AbstractEnergyBlock<EnderConfig, EnderCellBl
 
     @Override
     public EnergyBlockItem getBlockItem(Item.Properties properties, @Nullable ResourceKey<CreativeModeTab> group) {
-        return super.getBlockItem(properties.stacksTo(1), group);
+        return super.getBlockItem(properties, group);
     }
 
     @Nullable

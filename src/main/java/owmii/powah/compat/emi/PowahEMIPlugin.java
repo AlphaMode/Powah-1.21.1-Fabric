@@ -10,7 +10,6 @@ import dev.emi.emi.api.widget.Bounds;
 import java.util.List;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeManager;
@@ -130,7 +129,7 @@ public class PowahEMIPlugin implements EmiPlugin {
                     List.of(Component.translatable("jei.powah.lens_of_ender")), null));
 
         registry.addGenericExclusionArea((screen, consumer) -> {
-            if (screen instanceof AbstractContainerScreen<?>containerScreen) {
+            if (screen instanceof AbstractContainerScreen<?> containerScreen) {
                 for (var area : containerScreen.getExtraAreas()) {
                     consumer.accept(new Bounds(area.getX(), area.getY(), area.getWidth(), area.getHeight()));
                 }

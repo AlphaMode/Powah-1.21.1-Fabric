@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
@@ -63,7 +62,7 @@ public class FabricEnvHandler implements EnvHandler {
     @Override
     public void setupBlockItems() {
         for (var block : BuiltInRegistries.BLOCK) {
-            if (block instanceof IBlock<?, ?>iBlock) {
+            if (block instanceof IBlock<?, ?> iBlock) {
                 var blockItem = iBlock.getBlockItem(new Item.Properties(), ItemGroups.MAIN_KEY);
                 Registry.register(BuiltInRegistries.ITEM, BuiltInRegistries.BLOCK.getKey(block), blockItem);
             }
@@ -120,7 +119,7 @@ public class FabricEnvHandler implements EnvHandler {
             return null;
         });
         EnergyStorage.SIDED.registerFallback((level, pos, state, be, side) -> {
-            if (be instanceof AbstractEnergyStorage<?, ?>energyStorage) {
+            if (be instanceof AbstractEnergyStorage<?, ?> energyStorage) {
                 if (be instanceof FabricCableTile cableTile) {
                     if (cableTile.isEnergyPresent(side)) {
                         return new DelegatingEnergyStorage(EnergyStorage.EMPTY, () -> false) {
@@ -220,7 +219,7 @@ public class FabricEnvHandler implements EnvHandler {
                 (player.getAbilities().instabuild
                         ? ContainerItemContext.withConstant(stack)
                         : ContainerItemContext.ofPlayerHand(player, hand))
-                                .find(FluidStorage.ITEM),
+                        .find(FluidStorage.ITEM),
                 Storage.<FluidVariant>empty());
         var tankWrapper = createTankWrapper(tank);
 

@@ -6,8 +6,11 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -18,6 +21,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import org.joml.Quaternionf;
 import owmii.powah.Powah;
 import owmii.powah.item.ReactorItem;
 import owmii.powah.lib.client.util.Render;
@@ -26,7 +30,7 @@ import owmii.powah.lib.client.util.RenderTypes;
 public class ReactorOverlayHandler {
     static final ResourceLocation OV_TEXTURE = Powah.id("textures/misc/reactor_ov.png");
 
-    public static void onRenderLast(PoseStack matrix) {
+    public static void onRenderLast(PoseStack matrix, Camera camera) {
         Minecraft mc = Minecraft.getInstance();
         net.minecraft.world.entity.player.Player player = mc.player;
         if (player == null || mc.level == null)
@@ -72,20 +76,26 @@ public class ReactorOverlayHandler {
                 }
             }
             matrix.pushPose();
-            Vec3 projectedView = Minecraft.getInstance().gameRenderer.getMainCamera().getPosition();
+            Vec3 projectedView = camera.getPosition();
+            matrix.mulPose(new Quaternionf(camera.rotation()).invert());
             matrix.translate(-projectedView.x, -projectedView.y, -projectedView.z);
             matrix.translate(-1.0D, 0.001D, -1.0D);
             float r = (color >> 16 & 0xFF) / 255.0F;
             float g = (color >> 8 & 0xFF) / 255.0F;
             float b = (color & 0xFF) / 255.0F;
             MultiBufferSource.BufferSource rtb = mc.renderBuffers().bufferSource();
-            VertexConsumer buffer = rtb.getBuffer(RenderTypes.getTextBlended(OV_TEXTURE));
+            RenderType renderType = RenderTypes.getTextBlended(OV_TEXTURE);
+            VertexConsumer buffer = rtb.getBuffer(renderType);
             RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE);
-            buffer.addVertex(matrix.last().pose(), pos.getX(), pos.getY(), pos.getZ() + 3).setColor(r, g, b, 1.0F).setUv(0.0F, 1.0F).setLight(Render.MAX_LIGHT);
-            buffer.addVertex(matrix.last().pose(), pos.getX() + 3, pos.getY(), pos.getZ() + 3).setColor(r, g, b, 1.0F).setUv(1.0F, 1.0F).setLight(Render.MAX_LIGHT);
-            buffer.addVertex(matrix.last().pose(), pos.getX() + 3, pos.getY(), pos.getZ()).setColor(r, g, b, 1.0F).setUv(1.0F, 0.0F).setLight(Render.MAX_LIGHT);
-            buffer.addVertex(matrix.last().pose(), pos.getX(), pos.getY(), pos.getZ()).setColor(r, g, b, 1.0F).setUv(0.0F, 0.0F).setLight(Render.MAX_LIGHT);
-            rtb.endBatch(RenderTypes.getTextBlended(OV_TEXTURE));
+            buffer.addVertex(matrix.last().pose(), pos.getX(), pos.getY(), pos.getZ() + 3).setColor(r, g, b, 1.0F).setUv(0.0F, 1.0F)
+                    .setLight(Render.MAX_LIGHT);
+            buffer.addVertex(matrix.last().pose(), pos.getX() + 3, pos.getY(), pos.getZ() + 3).setColor(r, g, b, 1.0F).setUv(1.0F, 1.0F)
+                    .setLight(Render.MAX_LIGHT);
+            buffer.addVertex(matrix.last().pose(), pos.getX() + 3, pos.getY(), pos.getZ()).setColor(r, g, b, 1.0F).setUv(1.0F, 0.0F)
+                    .setLight(Render.MAX_LIGHT);
+            buffer.addVertex(matrix.last().pose(), pos.getX(), pos.getY(), pos.getZ()).setColor(r, g, b, 1.0F).setUv(0.0F, 0.0F)
+                    .setLight(Render.MAX_LIGHT);
+            rtb.endBatch(renderType);
             RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
             matrix.popPose();
 
