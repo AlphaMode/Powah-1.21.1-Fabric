@@ -1,6 +1,5 @@
 package owmii.powah.block.furnator;
 
-import dev.architectury.hooks.item.ItemStackHooks;
 import dev.architectury.registry.fuel.FuelRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
