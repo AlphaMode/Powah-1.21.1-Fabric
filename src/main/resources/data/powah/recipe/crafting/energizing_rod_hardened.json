@@ -7,7 +7,7 @@
   ],
   "key": {
 	"q": {
-	  "tag": "c:quartz_blocks"
+	  "item": "minecraft:quartz"
 	},
 	"e": {
 	  "item": "powah:energizing_rod_basic"
